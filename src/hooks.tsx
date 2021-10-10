@@ -32,7 +32,7 @@ export const useSkip = (query: string) => {
   const [skip, setSkip] = useState(false);
 
   useEffect(() => {
-    if (query.length < 2) {
+    if (query.length < 3) {
       setSkip(true);
     } else {
       setSkip(false);
