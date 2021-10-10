@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ContainerStyle from "./components/Container/ContainerStyle";
+import Container from "./components/Container";
 
-function App() {
+import SearchResults from "./components/SearchResults";
+import PartyResults from "./components/PartyResults";
+import Input from "./components/Input";
+import { IContainerProps } from "./interfaces/IContainerProps";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContainerStyle>
+      <Container>
+        {({
+          onSearchChange,
+          queryError,
+          status,
+          onDelete,
+          onSelect,
+          partyMorty,
+          partyRick,
+          searchValue,
+          displayedCharacters,
+        }: IContainerProps) => (
+          <>
+            <Input
+              placeholder="Enter a character's name"
+              onChange={onSearchChange}
+              value={searchValue}
+            />
+            <SearchResults
+              characters={displayedCharacters}
+              status={status}
+              queryError={queryError}
+              onDelete={onDelete}
+              onSelect={onSelect}
+            />
+            <PartyResults partyRick={partyRick} partyMorty={partyMorty} />
+          </>
+        )}
+      </Container>
+    </ContainerStyle>
   );
-}
+};
 
 export default App;
