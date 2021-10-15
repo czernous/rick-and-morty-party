@@ -1,7 +1,7 @@
 {
   "name": "rick-and-morty-party",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@apollo/client": "^3.4.16",
     "@testing-library/jest-dom": "^5.14.1",
@@ -48,5 +48,6 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.15"
-  }
+  },
+  "homepage": "."
 }
